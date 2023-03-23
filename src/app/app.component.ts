@@ -1,4 +1,14 @@
 import { Component } from '@angular/core';
+import data from '../assets/products.json';
+
+interface DATA {
+  product: String;
+  price: Number;
+  currency: String;
+  rating: Number;
+  description: String;
+  similarProducts: {};
+}
 
 @Component({
   selector: 'app-root',
@@ -6,18 +16,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  lis = this.getLis(6);
+  data: DATA[] = data;
 
-  getLis(quantity: number) {
-    return Array.from(Array(quantity)).map(() => {
-      return {
-        nombre: 'Product',
-      };
-    });
+  buttonClicked() {
+    console.log(data);
   }
-
-  buttonClicked(index:number){
-    alert('Boton '+index+' apretado');
-  }
-
+  
 }

@@ -65,15 +65,13 @@
           </button>
           <b>Products</b><bR />
           <ul class="list-unstyled ps-0">
-            <div *ngFor="let li of lis; let index = index">
+            <div *ngFor="let datas of data;">
               <li class="mb-1">
                 <button
-                  class="btn btn-toggle align-items-center rounded"
-                  (click)="buttonClicked(index + 1)"
+                  class="btn btn-toggle"
+                  (click)="buttonClicked()"
                 >
-                  {{ li.nombre }} {{ index + 1 }} &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
-                  &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &#10095;
+                  {{ datas.product }} &nbsp; &nbsp; &nbsp;&#10095;
                 </button>
               </li>
               <hr />
