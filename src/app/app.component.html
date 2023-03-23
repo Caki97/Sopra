@@ -25,7 +25,7 @@
           />
         </svg>
 
-        <ul class="nav col-md-auto mb-md-0  offset-md-6">
+        <ul class="nav col-md-auto mb-md-0 offset-md-6">
           <li><a href="#" class="nav-link px-4 link-dark">Home</a></li>
           <div class="v-line"></div>
           <li><a href="#" class="nav-link px-4 link-dark">About</a></li>
@@ -36,7 +36,7 @@
         </ul>
 
         <div class="col-md-auto text-end">
-          <button type="button" class="btn btn-primary">
+          <button type="button" class="btn btn-secondary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -54,29 +54,337 @@
         </div>
       </header>
     </div>
-    <div class="p-3 bg-white d-flex flex-column h-100" style="width: 230px;">
-      <button type="button" class="btn btn-primary mb-3 col-md-7">
-        Filter
-      </button>
-      <button type="button" class="btn btn-primary mb-4 col-md-7">
-        Reset Filter
-      </button>
-      <b>Products</b>
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            Product 1  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#10095;
+    <div class="container-fluid border">
+      <div class="row">
+        <div class="p-3 bg-white d-flex flex-column col-md-3">
+          <button type="button" class="btn btn-secondary mb-3 col-md-7">
+            Filter
           </button>
-          <div class="collapse" id="dashboard-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Detalles</a></li>
-              <li><a href="#" class="link-dark rounded">Precio</a></li>
-              <li><a href="#" class="link-dark rounded">Opiniones</a></li>
-            </ul>
+          <button type="button" class="btn btn-secondary mb-4 col-md-7">
+            Reset Filter
+          </button>
+          <b>Products</b><bR />
+          <ul class="list-unstyled ps-0">
+            <div *ngFor="let li of lis; let index = index">
+              <li class="mb-1">
+                <button
+                  class="btn btn-toggle align-items-center rounded"
+                  (click)="buttonClicked(index + 1)"
+                >
+                  {{ li.nombre }} {{ index + 1 }} &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                  &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &#10095;
+                </button>
+              </li>
+              <hr />
+            </div>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <div class="row border">
+            <div class="col-md-5">
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                class="img"
+              />
+            </div>
+            <div class="col-md-7 text-start">
+              <br />
+              <h1>Product title</h1>
+              <form>
+                <p class="clasificacion mb-4">
+                  sweiver 5&nbsp; &nbsp;
+                  <input
+                    id="radio1"
+                    type="radio"
+                    name="estrellas"
+                    value="5"
+                  /><!--
+                    --><label for="radio1">★</label
+                  ><!--
+                    --><input
+                    id="radio2"
+                    type="radio"
+                    name="estrellas"
+                    value="4"
+                  /><!--
+                    --><label for="radio2">★</label
+                  ><!--
+                    --><input
+                    id="radio3"
+                    type="radio"
+                    name="estrellas"
+                    value="3"
+                  /><!--
+                    --><label for="radio3">★</label
+                  ><!--
+                    --><input
+                    id="radio4"
+                    type="radio"
+                    name="estrellas"
+                    value="2"
+                  /><!--
+                    --><label for="radio4">★</label
+                  ><!--
+                    --><input
+                    id="radio5"
+                    type="radio"
+                    name="estrellas"
+                    value="1"
+                  /><!--
+                    --><label for="radio5">★</label>
+                </p>
+              </form>
+              <hr />
+              <br />
+              <h2>$1232</h2>
+              <br />
+              <hr />
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <br /><br />
+              <hr width="100px" />
+              <button type="button" class="btn btn-secondary mt-4">
+                Delete item
+              </button>
+            </div>
+            <div class="col-md-12 border-top text-center pt-3 mb-3">
+              <h1>Similar products</h1>
+            </div>
+            <div class="col-md-3 justify-content-center mb-3">
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                width="100%"
+              />
+            </div>
+            <div class="col-md-3">
+              <h3>Product Name</h3>
+              <form>
+                <p class="clasificacion mb-4 text-start">
+                  <input
+                    id="radio1"
+                    type="radio"
+                    name="estrellas"
+                    value="5"
+                  /><!--
+                    --><label for="radio1">★</label
+                  ><!--
+                    --><input
+                    id="radio2"
+                    type="radio"
+                    name="estrellas"
+                    value="4"
+                  /><!--
+                    --><label for="radio2">★</label
+                  ><!--
+                    --><input
+                    id="radio3"
+                    type="radio"
+                    name="estrellas"
+                    value="3"
+                  /><!--
+                    --><label for="radio3">★</label
+                  ><!--
+                    --><input
+                    id="radio4"
+                    type="radio"
+                    name="estrellas"
+                    value="2"
+                  /><!--
+                    --><label for="radio4">★</label
+                  ><!--
+                    --><input
+                    id="radio5"
+                    type="radio"
+                    name="estrellas"
+                    value="1"
+                  /><!--
+                    --><label for="radio5">★</label>
+                </p>
+              </form>
+              <h5>$300</h5>
+            </div>
+            <div class="col-md-3">
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                width="100%"
+              />
+            </div>
+            <div class="col-md-3">
+              <h3>Product name</h3>
+              <form>
+                <p class="clasificacion mb-4 text-start">
+                  <input
+                    id="radio1"
+                    type="radio"
+                    name="estrellas"
+                    value="5"
+                  /><!--
+                    --><label for="radio1">★</label
+                  ><!--
+                    --><input
+                    id="radio2"
+                    type="radio"
+                    name="estrellas"
+                    value="4"
+                  /><!--
+                    --><label for="radio2">★</label
+                  ><!--
+                    --><input
+                    id="radio3"
+                    type="radio"
+                    name="estrellas"
+                    value="3"
+                  /><!--
+                    --><label for="radio3">★</label
+                  ><!--
+                    --><input
+                    id="radio4"
+                    type="radio"
+                    name="estrellas"
+                    value="2"
+                  /><!--
+                    --><label for="radio4">★</label
+                  ><!--
+                    --><input
+                    id="radio5"
+                    type="radio"
+                    name="estrellas"
+                    value="1"
+                  /><!--
+                    --><label for="radio5">★</label>
+                </p>
+              </form>
+              <h5>$300</h5>
+            </div>
+            <div class="col-md-12 border-top text-start pt-3 mb-3">
+              <h1>Reviews</h1>
+            </div>
+            <div class="col-md-12 pt-3 mb-3">
+              <div class="row">
+                <div class="col-md-1">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                    class="img-thumbnail"
+                  />
+                </div>
+                <div class="col-md-2">
+                  <h4>Pepe</h4>
+                  agosto 3,2018
+                  <form>
+                    <p class="clasificacion mb-4 text-start">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="estrellas"
+                        value="5"
+                      /><!--
+                        --><label for="radio1">★</label
+                      ><!--
+                        --><input
+                        id="radio2"
+                        type="radio"
+                        name="estrellas"
+                        value="4"
+                      /><!--
+                        --><label for="radio2">★</label
+                      ><!--
+                        --><input
+                        id="radio3"
+                        type="radio"
+                        name="estrellas"
+                        value="3"
+                      /><!--
+                        --><label for="radio3">★</label
+                      ><!--
+                        --><input
+                        id="radio4"
+                        type="radio"
+                        name="estrellas"
+                        value="2"
+                      /><!--
+                        --><label for="radio4">★</label
+                      ><!--
+                        --><input
+                        id="radio5"
+                        type="radio"
+                        name="estrellas"
+                        value="1"
+                      /><!--
+                        --><label for="radio5">★</label>
+                    </p>
+                  </form>
+                </div>
+                <div class="col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+              <hr width="100px" />
+              <div class="row">
+                <div class="col-md-1">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                    class="img-thumbnail"
+                  />
+                </div>
+                <div class="col-md-2">
+                  <h4>Pepe</h4>
+                  agosto 3,2018
+                  <form>
+                    <p class="clasificacion mb-4 text-start">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="estrellas"
+                        value="5"
+                      /><!--
+                        --><label for="radio1">★</label
+                      ><!--
+                        --><input
+                        id="radio2"
+                        type="radio"
+                        name="estrellas"
+                        value="4"
+                      /><!--
+                        --><label for="radio2">★</label
+                      ><!--
+                        --><input
+                        id="radio3"
+                        type="radio"
+                        name="estrellas"
+                        value="3"
+                      /><!--
+                        --><label for="radio3">★</label
+                      ><!--
+                        --><input
+                        id="radio4"
+                        type="radio"
+                        name="estrellas"
+                        value="2"
+                      /><!--
+                        --><label for="radio4">★</label
+                      ><!--
+                        --><input
+                        id="radio5"
+                        type="radio"
+                        name="estrellas"
+                        value="1"
+                      /><!--
+                        --><label for="radio5">★</label>
+                    </p>
+                  </form>
+                </div>
+                <div class="col-md-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+            </div>
           </div>
-        </li>
-        <hr>
-      </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
