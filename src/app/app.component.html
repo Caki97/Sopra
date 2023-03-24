@@ -7,25 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-primary">
       <header
-        class="d-flex flex-wrap align-items-center py-3 border-bottom border-dark"
+        class="d-flex flex-wrap align-items-center py-3 border-bottom border-dark bg-primary"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="50"
-          height="50"
-          fill="currentColor"
-          class="bi bi-card-image"
-          viewBox="0 0 16 16"
-        >
-          <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-          <path
-            d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"
-          />
-        </svg>
+        <img
+          src="https://www.mubis.es/media/users/13585/162125/nueva-app-de-filmaffinity-para-android-original.png"
+          width="60px"
+          height="60px"
+        />
 
-        <ul class="nav col-md-auto mb-md-0 offset-md-6">
+        <ul class="nav col-md-auto mb-md-0 offset-md-5">
           <li><a href="#" class="nav-link px-4 link-dark">Home</a></li>
           <div class="v-line"></div>
           <li><a href="#" class="nav-link px-4 link-dark">About</a></li>
@@ -54,8 +46,8 @@
         </div>
       </header>
     </div>
-    <div class="container-fluid border">
-      <div class="row">
+    <div class="container-fluid text-white">
+      <div class="row bg-secondary">
         <div class="p-3 bg-white d-flex flex-column col-md-3">
           <button type="button" class="btn btn-secondary mb-3 col-md-7">
             Filter
@@ -64,321 +56,80 @@
             Reset Filter
           </button>
           <b>Products</b><bR />
-          <ul class="list-unstyled ps-0">
-            <div *ngFor="let datas of data;">
+          <ul class="list-unstyled text-center">
+            <div *ngFor="let datas of data; let index = index">
               <li class="mb-1">
                 <button
                   class="btn btn-toggle"
-                  (click)="buttonClicked()"
+                  (click)="buttonClicked(index + 1)"
                 >
                   {{ datas.product }} &nbsp; &nbsp; &nbsp;&#10095;
                 </button>
               </li>
-              <hr />
+              <hr/>
             </div>
           </ul>
         </div>
         <div class="col-md-9">
-          <div class="row border">
+          <div class="row border-top border-dark">
             <div class="col-md-5">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
-                class="img"
-              />
+              <img src="{{ data2.image }}" class="img" />
             </div>
             <div class="col-md-7 text-start">
               <br />
-              <h1>Product title</h1>
-              <form>
-                <p class="clasificacion mb-4">
-                  sweiver 5&nbsp; &nbsp;
-                  <input
-                    id="radio1"
-                    type="radio"
-                    name="estrellas"
-                    value="5"
-                  /><!--
-                    --><label for="radio1">★</label
-                  ><!--
-                    --><input
-                    id="radio2"
-                    type="radio"
-                    name="estrellas"
-                    value="4"
-                  /><!--
-                    --><label for="radio2">★</label
-                  ><!--
-                    --><input
-                    id="radio3"
-                    type="radio"
-                    name="estrellas"
-                    value="3"
-                  /><!--
-                    --><label for="radio3">★</label
-                  ><!--
-                    --><input
-                    id="radio4"
-                    type="radio"
-                    name="estrellas"
-                    value="2"
-                  /><!--
-                    --><label for="radio4">★</label
-                  ><!--
-                    --><input
-                    id="radio5"
-                    type="radio"
-                    name="estrellas"
-                    value="1"
-                  /><!--
-                    --><label for="radio5">★</label>
-                </p>
-              </form>
+              <h2>{{ data2.product }}</h2>
+              <br />
+                {{ data2.rating }}&nbsp;reviews
               <hr />
               <br />
-              <h2>$1232</h2>
+              <h2>{{ data2.price }}{{ data2.currency }} Millones</h2>
               <br />
               <hr />
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {{ data2.description }}
               <br /><br />
               <hr width="100px" />
-              <button type="button" class="btn btn-secondary mt-4">
+              <button type="button" class="btn btn-info mt-2">
                 Delete item
               </button>
             </div>
-            <div class="col-md-12 border-top text-center pt-3 mb-3">
+            <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
               <h1>Similar products</h1>
             </div>
-            <div class="col-md-3 justify-content-center mb-3">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
-                width="100%"
-              />
+            <div class="col-md-6" *ngFor="let datas2 of data2.similarProducts">
+              <div class="row">
+                <div class="col-md-6 justify-content-center">
+                  <img
+                    src="{{datas2.image}}"
+                    width="100%"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <h3>{{datas2.product}}</h3>
+                  <h5>{{datas2.price}}{{datas2.currency}}</h5>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3">
-              <h3>Product Name</h3>
-              <form>
-                <p class="clasificacion mb-4 text-start">
-                  <input
-                    id="radio1"
-                    type="radio"
-                    name="estrellas"
-                    value="5"
-                  /><!--
-                    --><label for="radio1">★</label
-                  ><!--
-                    --><input
-                    id="radio2"
-                    type="radio"
-                    name="estrellas"
-                    value="4"
-                  /><!--
-                    --><label for="radio2">★</label
-                  ><!--
-                    --><input
-                    id="radio3"
-                    type="radio"
-                    name="estrellas"
-                    value="3"
-                  /><!--
-                    --><label for="radio3">★</label
-                  ><!--
-                    --><input
-                    id="radio4"
-                    type="radio"
-                    name="estrellas"
-                    value="2"
-                  /><!--
-                    --><label for="radio4">★</label
-                  ><!--
-                    --><input
-                    id="radio5"
-                    type="radio"
-                    name="estrellas"
-                    value="1"
-                  /><!--
-                    --><label for="radio5">★</label>
-                </p>
-              </form>
-              <h5>$300</h5>
-            </div>
-            <div class="col-md-3">
-              <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
-                width="100%"
-              />
-            </div>
-            <div class="col-md-3">
-              <h3>Product name</h3>
-              <form>
-                <p class="clasificacion mb-4 text-start">
-                  <input
-                    id="radio1"
-                    type="radio"
-                    name="estrellas"
-                    value="5"
-                  /><!--
-                    --><label for="radio1">★</label
-                  ><!--
-                    --><input
-                    id="radio2"
-                    type="radio"
-                    name="estrellas"
-                    value="4"
-                  /><!--
-                    --><label for="radio2">★</label
-                  ><!--
-                    --><input
-                    id="radio3"
-                    type="radio"
-                    name="estrellas"
-                    value="3"
-                  /><!--
-                    --><label for="radio3">★</label
-                  ><!--
-                    --><input
-                    id="radio4"
-                    type="radio"
-                    name="estrellas"
-                    value="2"
-                  /><!--
-                    --><label for="radio4">★</label
-                  ><!--
-                    --><input
-                    id="radio5"
-                    type="radio"
-                    name="estrellas"
-                    value="1"
-                  /><!--
-                    --><label for="radio5">★</label>
-                </p>
-              </form>
-              <h5>$300</h5>
-            </div>
-            <div class="col-md-12 border-top text-start pt-3 mb-3">
+            <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
               <h1>Reviews</h1>
             </div>
-            <div class="col-md-12 pt-3 mb-3">
+            <div class="col-md-12 mb-3" *ngFor="let datas3 of data2.reviews">
               <div class="row">
                 <div class="col-md-1">
                   <img
-                    src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+                    src="{{datas3.image}}"
                     class="img-thumbnail"
                   />
                 </div>
                 <div class="col-md-2">
-                  <h4>Pepe</h4>
-                  agosto 3,2018
-                  <form>
-                    <p class="clasificacion mb-4 text-start">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="estrellas"
-                        value="5"
-                      /><!--
-                        --><label for="radio1">★</label
-                      ><!--
-                        --><input
-                        id="radio2"
-                        type="radio"
-                        name="estrellas"
-                        value="4"
-                      /><!--
-                        --><label for="radio2">★</label
-                      ><!--
-                        --><input
-                        id="radio3"
-                        type="radio"
-                        name="estrellas"
-                        value="3"
-                      /><!--
-                        --><label for="radio3">★</label
-                      ><!--
-                        --><input
-                        id="radio4"
-                        type="radio"
-                        name="estrellas"
-                        value="2"
-                      /><!--
-                        --><label for="radio4">★</label
-                      ><!--
-                        --><input
-                        id="radio5"
-                        type="radio"
-                        name="estrellas"
-                        value="1"
-                      /><!--
-                        --><label for="radio5">★</label>
-                    </p>
-                  </form>
+                  <h4>{{datas3.name}}</h4>
+                  {{datas3.date}}
                 </div>
                 <div class="col-md-9">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {{datas3.opinion}}
                 </div>
               </div>
               <hr width="100px" />
-              <div class="row">
-                <div class="col-md-1">
-                  <img
-                    src="https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
-                    class="img-thumbnail"
-                  />
-                </div>
-                <div class="col-md-2">
-                  <h4>Pepe</h4>
-                  agosto 3,2018
-                  <form>
-                    <p class="clasificacion mb-4 text-start">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="estrellas"
-                        value="5"
-                      /><!--
-                        --><label for="radio1">★</label
-                      ><!--
-                        --><input
-                        id="radio2"
-                        type="radio"
-                        name="estrellas"
-                        value="4"
-                      /><!--
-                        --><label for="radio2">★</label
-                      ><!--
-                        --><input
-                        id="radio3"
-                        type="radio"
-                        name="estrellas"
-                        value="3"
-                      /><!--
-                        --><label for="radio3">★</label
-                      ><!--
-                        --><input
-                        id="radio4"
-                        type="radio"
-                        name="estrellas"
-                        value="2"
-                      /><!--
-                        --><label for="radio4">★</label
-                      ><!--
-                        --><input
-                        id="radio5"
-                        type="radio"
-                        name="estrellas"
-                        value="1"
-                      /><!--
-                        --><label for="radio5">★</label>
-                    </p>
-                  </form>
-                </div>
-                <div class="col-md-9">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </div>
             </div>
           </div>
         </div>
