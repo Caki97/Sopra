@@ -17,56 +17,56 @@
           height="60px"
         />
 
-        <ul class="nav col-md-auto mb-md-0 offset-md-5">
+        <ul class="nav col-md-auto mb-md-0 offset-md-4">
           <li><a href="#" class="nav-link px-4 link-dark">Home</a></li>
           <div class="v-line"></div>
-          <li><a href="#" class="nav-link px-4 link-dark">About</a></li>
+          <li><a href="#" class="nav-link px-4 link-dark">Cartelera</a></li>
           <div class="v-line"></div>
-          <li><a href="#" class="nav-link px-4 link-dark">Shop</a></li>
+          <li><a href="#" class="nav-link px-4 link-dark">Reviews</a></li>
           <div class="v-line"></div>
-          <li><a href="#" class="nav-link px-4 link-dark">Help</a></li>
+          <li><a href="#" class="nav-link px-4 link-dark">Contacto</a></li>
         </ul>
 
         <div class="col-md-auto text-end">
-          <button type="button" class="btn btn-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-cart3"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-              />
-            </svg>
-            Your Cart
-          </button>
+          <button type="button" class="btn btn-secondary">Entradas</button>
         </div>
       </header>
     </div>
-    <div class="container-fluid text-white">
+    <div class="container-fluid">
       <div class="row bg-secondary">
         <div class="p-3 bg-white d-flex flex-column col-md-3">
-          <button type="button" class="btn btn-secondary mb-3 col-md-7">
+          <input
+            type="text"
+            [(ngModel)]="filtro"
+            placeholder="Buscar Pelicula"
+          />
+          <br />
+          <button
+            type="button"
+            class="btn btn-secondary mb-3"
+            (click)="EncuentraPeli()"
+          >
             Filter
           </button>
-          <button type="button" class="btn btn-secondary mb-4 col-md-7">
+          <button
+            type="button"
+            class="btn btn-secondary mb-4"
+            (click)="Reset()"
+          >
             Reset Filter
           </button>
-          <b>Products</b><bR />
+          <b>Peliculas</b><bR />
           <ul class="list-unstyled text-center">
-            <div *ngFor="let datas of data; let index = index">
+            <div *ngFor="let datas of data3">
               <li class="mb-1">
                 <button
                   class="btn btn-toggle"
-                  (click)="buttonClicked(index + 1)"
+                  (click)="buttonClicked(datas.id)"
                 >
                   {{ datas.product }} &nbsp; &nbsp; &nbsp;&#10095;
                 </button>
               </li>
-              <hr/>
+              <hr />
             </div>
           </ul>
         </div>
@@ -79,7 +79,12 @@
               <br />
               <h2>{{ data2.product }}</h2>
               <br />
-                {{ data2.rating }}&nbsp;reviews
+              <span
+                *ngFor="let estrella of estrellasAmarillas; let i = index"
+                [ngClass]="{ 'estrella-amarilla': i < data2.rating }"
+                >★</span
+              >
+              {{ data2.rating }}&nbsp;reviews
               <hr />
               <br />
               <h2>{{ data2.price }}{{ data2.currency }} Millones</h2>
@@ -89,44 +94,47 @@
               {{ data2.description }}
               <br /><br />
               <hr width="100px" />
-              <button type="button" class="btn btn-info mt-2">
+              <button type="button" class="btn btn-info mt-2" (click)="DeletePeli(data2.id)">
                 Delete item
               </button>
             </div>
             <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
-              <h1>Similar products</h1>
+              <h1><u>Similar products</u></h1>
             </div>
             <div class="col-md-6" *ngFor="let datas2 of data2.similarProducts">
               <div class="row">
-                <div class="col-md-6 justify-content-center">
-                  <img
-                    src="{{datas2.image}}"
-                    width="100%"
-                  />
+                <div class="col-md-6 justify-content-center mt-1 mb-1">
+                  <img src="{{ datas2.image }}" width="100%" />
                 </div>
                 <div class="col-md-6">
-                  <h3>{{datas2.product}}</h3>
-                  <h5>{{datas2.price}}{{datas2.currency}}</h5>
+                  <h3>{{ datas2.product }}</h3>
+                  <span
+                    *ngFor="let estrella of estrellasAmarillas; let i = index"
+                    [ngClass]="{ 'estrella-amarilla': i < datas2.rating }"
+                    >★</span>
+                  <h5>{{ datas2.price }}{{ datas2.currency }}</h5>
                 </div>
               </div>
             </div>
             <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
-              <h1>Reviews</h1>
+              <h1><u>Reviews</u></h1>
             </div>
             <div class="col-md-12 mb-3" *ngFor="let datas3 of data2.reviews">
               <div class="row">
-                <div class="col-md-1">
-                  <img
-                    src="{{datas3.image}}"
-                    class="img-thumbnail"
-                  />
+                <div class="col-md-2">
+                  <img src="{{ datas3.image }}" class="img-thumbnail" />
                 </div>
                 <div class="col-md-2">
-                  <h4>{{datas3.name}}</h4>
-                  {{datas3.date}}
+                  <h4>{{ datas3.name }}</h4>
+                  {{ datas3.date }}
+                  
+                  <span
+                    *ngFor="let estrella of estrellasAmarillas; let i = index"
+                    [ngClass]="{ 'estrella-amarilla': i < datas3.rating }"
+                    >★</span>
                 </div>
-                <div class="col-md-9">
-                  {{datas3.opinion}}
+                <div class="col-md-8">
+                  {{ datas3.opinion }}
                 </div>
               </div>
               <hr width="100px" />
