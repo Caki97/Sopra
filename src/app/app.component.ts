@@ -1,4 +1,6 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,8 @@ import { Component} from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  constructor(private dialog: MatDialog) {}
+
   data = [
     {
       id: 1,
@@ -239,4 +243,7 @@ export class AppComponent {
     }
   }
 
+  openDialog() {
+    this.dialog.open(DialogComponent);
+  }
 }

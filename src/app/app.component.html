@@ -117,7 +117,7 @@
             <div class="col-md-6" *ngFor="let datas2 of data2.similarProducts">
               <div class="row">
                 <div class="col-md-6 justify-content-center mt-1 mb-1">
-                  <a (click)="buttonClicked(datas2.id)"
+                  <a (click)="openDialog()"
                     ><img src="{{ datas2.image }}" width="100%"
                   /></a>
                 </div>
@@ -129,7 +129,6 @@
                     >★</span
                   >
                   <h5>{{ datas2.price }} Millones de {{ datas2.currency }}</h5>
-                  <button class="btn btn-info mt-2">Detalles</button>
                 </div>
               </div>
             </div>
