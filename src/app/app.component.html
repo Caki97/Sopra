@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+    <!---Header-->
     <div class="container-fluid bg-primary">
       <header
         class="d-flex flex-wrap align-items-center py-3 border-bottom border-dark bg-primary"
@@ -33,8 +34,10 @@
         </div>
       </header>
     </div>
+    <!---Main-->
     <div class="container-fluid">
       <div class="row bg-secondary">
+        <!---Aside-->
         <div class="p-3 bg-white d-flex flex-column col-md-3">
           <input
             type="text"
@@ -45,7 +48,7 @@
           <button
             type="button"
             class="btn btn-secondary mb-3"
-            (click)="EncuentraPeli()"
+            (click)="FiltraPeli()"
           >
             Buscar
           </button>
@@ -58,12 +61,9 @@
           </button>
           <b>Peliculas</b><bR />
           <ul class="list-unstyled text-center">
-            <div *ngFor="let datas of data3">
+            <div *ngFor="let datas of datoFiltrado">
               <li class="mb-1">
-                <button
-                  class="btn btn-toggle"
-                  (click)="buttonClicked(datas.id)"
-                >
+                <button class="btn btn-toggle" (click)="Selecciona(datas)">
                   {{ datas.product }} &nbsp; &nbsp; &nbsp;&#10095;
                 </button>
               </li>
@@ -71,7 +71,7 @@
             </div>
           </ul>
           Filtrado por puntuación
-          <select [(ngModel)]="estrella" (change)="EncuentraEstrellas()">
+          <select [(ngModel)]="estrella" (change)="FiltraEstrellas()">
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
             <option value="3">⭐⭐⭐</option>
@@ -79,34 +79,37 @@
             <option value="5">⭐⭐⭐⭐⭐</option>
           </select>
         </div>
+        <!---Informacion-->
         <div class="col-md-9">
           <div class="row border-top border-dark">
             <div class="col-md-5">
-              <img src="{{ data2.image }}" class="img" />
+              <img [src]="datoElegido.image" class="img" />
             </div>
             <div class="col-md-7 text-start">
               <br />
-              <h2>{{ data2.product }}</h2>
+              <h2>{{ datoElegido.product }}</h2>
               <br />
               <span
-                *ngFor="let estrella of estrellasAmarillas; let i = index"
-                [ngClass]="{ 'estrella-amarilla': i < data2.rating }"
+                *ngFor="let estrella of estrellasAmarillas; let index = index"
+                [ngClass]="{ 'estrella-amarilla': index < datoElegido.rating }"
                 >★</span
               >
-              {{ data2.rating }}&nbsp;reviews
+              {{ datoElegido.rating }}&nbsp;reviews
               <hr />
               <br />
-              <h2>{{ data2.price }} Millones de {{ data2.currency }}</h2>
+              <h2>
+                {{ datoElegido.price }} Millones de {{ datoElegido.currency }}
+              </h2>
               <br />
               <hr />
               <br />
-              {{ data2.description }}
+              {{ datoElegido.description }}
               <br /><br />
               <hr width="100px" />
               <button
                 type="button"
                 class="btn btn-info mt-2"
-                (click)="DeletePeli(data2.id)"
+                (click)="EliminaPeli(datoElegido)"
               >
                 Borrar
               </button>
@@ -114,18 +117,21 @@
             <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
               <h1><u>Peliculas relacionadas</u></h1>
             </div>
-            <div class="col-md-6" *ngFor="let datas2 of data2.similarProducts">
+            <div
+              class="col-md-6"
+              *ngFor="let datas2 of datoElegido.similarProducts"
+            >
               <div class="row">
                 <div class="col-md-6 justify-content-center mt-1 mb-1">
-                  <a (click)="openDialog()"
-                    ><img src="{{ datas2.image }}" width="100%"
+                  <a (click)="AbrirDialogo()"
+                    ><img [src]="datas2.image" width="100%"
                   /></a>
                 </div>
                 <div class="col-md-6">
                   <h3>{{ datas2.product }}</h3>
                   <span
-                    *ngFor="let estrella of estrellasAmarillas; let i = index"
-                    [ngClass]="{ 'estrella-amarilla': i < datas2.rating }"
+                    *ngFor="let estrella of estrellasAmarillas; let index = index"
+                    [ngClass]="{ 'estrella-amarilla': index < datas2.rating }"
                     >★</span
                   >
                   <h5>{{ datas2.price }} Millones de {{ datas2.currency }}</h5>
@@ -135,18 +141,21 @@
             <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
               <h1><u>Opiniones</u></h1>
             </div>
-            <div class="col-md-12 mb-3" *ngFor="let datas3 of data2.reviews">
+            <div
+              class="col-md-12 mb-3"
+              *ngFor="let datas3 of datoElegido.reviews"
+            >
               <div class="row">
                 <div class="col-md-2">
-                  <img src="{{ datas3.image }}" class="img-thumbnail" />
+                  <img [src]="datas3.image" class="img-thumbnail" />
                 </div>
                 <div class="col-md-2">
                   <h4>{{ datas3.name }}</h4>
                   {{ datas3.date }}
 
                   <span
-                    *ngFor="let estrella of estrellasAmarillas; let i = index"
-                    [ngClass]="{ 'estrella-amarilla': i < datas3.rating }"
+                    *ngFor="let estrella of estrellasAmarillas; let index = index"
+                    [ngClass]="{ 'estrella-amarilla': index < datas3.rating }"
                     >★</span
                   >
                 </div>
