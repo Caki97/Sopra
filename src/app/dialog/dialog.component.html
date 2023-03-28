@@ -1,8 +1,13 @@
-<h1>{{ internalData.product }}</h1>
-<img [src]="internalData.image" />
 <div class="text-center">
-  {{ internalData.description }}
+
+  <h1>{{internalData.product}}</h1>
+  <div mat-dialog-content>
+    <img [src]="internalData.image" />
+  </div>
+  <div class="text-center">
+    {{internalData.description}}
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">Cerrar</button>
+  </div>
 </div>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cerrar</button>
-</mat-dialog-actions>

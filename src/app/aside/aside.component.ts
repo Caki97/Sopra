@@ -27,7 +27,9 @@ type review = {
 })
 export class AsideComponent {
 
+  @Input() datoBorrado: producto | undefined;
   @Output() valueChange = new EventEmitter<any>();
+  @Output() valueChange2 = new EventEmitter<any>();
 
   datos: producto[] = [
     {

@@ -247,4 +247,8 @@ export class AppComponent {
   Selecciona(datos: producto) {
     this.datoElegido= datos;
   }
+
+  EliminaPeli(datos: producto){
+    // this.datosFiltrado= datos;
+  }
 }

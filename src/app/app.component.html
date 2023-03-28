@@ -14,7 +14,7 @@
           <app-aside (valueChange)="Selecciona($event)" ></app-aside>
         </div>
         <div class="d-flex col-md-9">
-          <app-main [datoElegido]="datoElegido"></app-main>
+          <app-main [datoElegido]="datoElegido" (valueChange)="EliminaPeli($event)"></app-main>
         </div>
       </div>
     </div>

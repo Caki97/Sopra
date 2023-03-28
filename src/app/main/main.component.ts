@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -28,6 +28,7 @@ type review = {
 })
 export class MainComponent {
   @Input() datoElegido: producto | undefined;
+  @Output() valueChange = new EventEmitter<any>();
 
   constructor(private dialog: MatDialog) {}
 
@@ -256,18 +257,16 @@ export class MainComponent {
       }),
       1
     );
+    this.valueChange.emit(this.datos);
   }
 
   AbrirDialogo(datos: any) {
     this.dialog.open(DialogComponent, {
+      width: "400px",
       data: {
-        image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
-        product: 'Babylon',
-        price: 4000,
-        currency: '€',
-        rating: 3,
-        description:
-          'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
+        image: datos.image,
+        product: datos.product,
+        description: datos.description,
       },
     });
   }
