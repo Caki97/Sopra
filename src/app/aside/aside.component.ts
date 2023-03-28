@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 type producto = {
   product: string;
   image: string;
@@ -20,11 +21,11 @@ type review = {
 };
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-aside',
+  templateUrl: './aside.component.html',
+  styleUrls: ['./aside.component.css']
 })
-export class AppComponent {
+export class AsideComponent {
 
   datos: producto[] = [
     {
@@ -242,4 +243,34 @@ export class AppComponent {
     },
   ];
 
+  datoElegido: producto = this.datos[0];
+  datoFiltrado = this.datos;
+  filtro: string = '';
+  estrella: number = 0;
+
+  FiltraEstrellas() {
+    this.datoFiltrado = this.datos.filter(
+      (datos) => datos.rating == this.estrella
+    );
+    this.datoElegido = this.datoFiltrado[0];
+  }
+
+  FiltraPeli() {
+    this.datoFiltrado = this.datos.filter((datos) =>
+      datos.product.toLowerCase().includes(this.filtro.toLowerCase())
+    );
+    this.datoElegido = this.datoFiltrado[0];
+  }
+
+  Reset() {
+    this.datoFiltrado = this.datos;
+    this.datoElegido = this.datoFiltrado[0];
+    this.filtro = '';
+  }
+
+  Selecciona(precio: number) {
+    const datoEncontrado = this.datos.find((dato) => dato.price === precio);
+    // this.datoElegido = datoEncontrado ? datoEncontrado : this.datoElegido;
+    this.datoElegido = datoEncontrado ?? this.datoElegido;
+  }
 }

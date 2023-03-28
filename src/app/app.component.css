@@ -2,23 +2,8 @@
     border: 1px solid black;
 } */
 
-.v-line{
+.v-line {
     border: 1px solid black;
-    height:40px;
+    height: 40px;
     width: 2px;
-   }
-
-   .img{
-    height: 100%;
-    width: 100%;
-    margin-left: -10px;
-   }
-
-   hr{
-    border: 1px solid black;
-   }
-
-   .estrella-amarilla {
-    color: yellow;
-  }
-  
+}

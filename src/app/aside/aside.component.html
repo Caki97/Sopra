@@ -1,0 +1,31 @@
+<!---Aside-->
+<!---Filtros-->
+<select [(ngModel)]="estrella" (change)="FiltraEstrellas()">
+  <option value="1">⭐</option>
+  <option value="2">⭐⭐</option>
+  <option value="3">⭐⭐⭐</option>
+  <option value="4">⭐⭐⭐⭐</option>
+  <option value="5">⭐⭐⭐⭐⭐</option>
+</select>
+<br /><br />
+<input type="text" [(ngModel)]="filtro" placeholder="Buscar Pelicula" />
+<br /><br />
+<button type="button" class="btn btn-secondary" (click)="FiltraPeli()">
+  Buscar
+</button>
+<button type="button" class="btn btn-secondary" (click)="Reset()">
+  Reiniciar
+</button>
+<br /><br />
+<!---Lista-->
+<b>Peliculas</b><bR />
+<ul class="list-unstyled text-center">
+  <div *ngFor="let dato of datoFiltrado">
+    <li class="mb-1">
+      <button class="btn btn-toggle" (click)="Selecciona(dato.price)">
+        {{ dato.product }} &nbsp; &nbsp; &nbsp;&#10095;
+      </button>
+    </li>
+    <hr />
+  </div>
+</ul>

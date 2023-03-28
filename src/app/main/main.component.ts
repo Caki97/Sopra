@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 type producto = {
   product: string;
@@ -20,11 +22,12 @@ type review = {
 };
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class AppComponent {
+export class MainComponent {
+  constructor(private dialog: MatDialog) {}
 
   datos: producto[] = [
     {
@@ -242,4 +245,32 @@ export class AppComponent {
     },
   ];
 
+  datoElegido: producto = this.datos[0];
+
+  estrellasAmarillas = Array(5).fill(true);
+
+  
+  EliminaPeli(datoElegido: any) {
+    this.datos.splice(
+      this.datos.findIndex((prod) => {
+        return prod.price === datoElegido.price;
+      }),
+      1
+    );
+  }
+
+  
+  AbrirDialogo(datos: any) {
+    this.dialog.open(DialogComponent, {
+      data: {
+        image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
+        product: 'Babylon',
+        price: 4000,
+        currency: '€',
+        rating: 3,
+        description:
+          'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
+      },
+    });
+  }
 }

@@ -1,8 +1,8 @@
-
-<h2 mat-dialog-title>Hola</h2>
-<mat-dialog-content>
-  Este es un diálogo de ejemplo.
-</mat-dialog-content>
+<h1>{{ internalData.product }}</h1>
+<img [src]="internalData.image" />
+<div class="text-center">
+  {{ internalData.description }}
+</div>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cerrar</button>
 </mat-dialog-actions>
