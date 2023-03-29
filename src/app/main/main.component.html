@@ -1,37 +1,46 @@
 <!---Main-->
-
-<div class="row border-top border-dark">
+<div *ngIf=datoElegido>
+<div
+  class="row border-top border-dark"
+  [ngStyle]="{
+    'background-color': datoElegido.fav === true ? 'black' : 'grey',
+    color: datoElegido.fav === true ? 'white' : 'black'
+  }"
+>
   <!---Informacion-->
   <div class="col-md-5">
-    <img [src]="datoElegido?.image" class="img" />
+    <img [src]="datoElegido.image" class="img" />
   </div>
   <div class="col-md-7 text-start">
     <br />
-    <h2>{{ datoElegido?.product }}</h2>
+    <h2>
+      {{ datoElegido.product }}
+      <button
+        class="btn btn-secondary btn-lg"
+        (click)="Favoritos()"
+        [ngStyle]="{
+          color: datoElegido.fav === true ? 'red' : 'white'
+        }"
+      >
+        ♥
+      </button>
+    </h2>
     <br />
-    <ng-template *ngIf="datoElegido">
-      console.log(datoElegido!.rating);
       <span
         *ngFor="let estrella of estrellasAmarillas; let indexEstrella = index"
         [ngClass]="{ 'estrella-amarilla': indexEstrella < datoElegido!.rating }"
         >★</span
-      >
-    </ng-template>
-    {{ datoElegido?.rating }}&nbsp;reviews
+      > {{ datoElegido.rating }}&nbsp;reviews
     <hr />
     <br />
-    <h2>{{ datoElegido?.price }} Millones de {{ datoElegido?.currency }}</h2>
+    <h2>{{ datoElegido.price }} Millones de {{ datoElegido.currency }}</h2>
     <br />
     <hr />
     <br />
-    {{ datoElegido?.description }}
+    {{ datoElegido.description }}
     <br /><br />
     <hr width="100px" />
-    <button
-      type="button"
-      class="btn btn-info mt-2"
-      (click)="EliminaPeli(datoElegido)"
-    >
+    <button type="button" class="btn btn-info mt-2" (click)="EliminaPeli()">
       Borrar
     </button>
   </div>
@@ -39,7 +48,7 @@
   <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
     <h1><u>Peliculas relacionadas</u></h1>
   </div>
-  <div class="col-md-6" *ngFor="let datas2 of datoElegido?.similarProducts">
+  <div class="col-md-6" *ngFor="let datas2 of datoElegido.similarProducts">
     <div class="row">
       <div class="col-md-6 justify-content-center mt-1 mb-1">
         <a (click)="AbrirDialogo(datas2)"
@@ -61,7 +70,7 @@
   <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
     <h1><u>Opiniones</u></h1>
   </div>
-  <div class="col-md-12 mb-3" *ngFor="let datas3 of datoElegido?.reviews">
+  <div class="col-md-12 mb-3" *ngFor="let datas3 of datoElegido.reviews">
     <div class="row">
       <div class="col-md-2">
         <img [src]="datas3.image" class="img-thumbnail" />
@@ -82,4 +91,7 @@
     </div>
     <hr width="100px" />
   </div>
+</div>
+
+  
 </div>

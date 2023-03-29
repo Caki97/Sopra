@@ -1,18 +1,34 @@
 <!---Aside-->
 <!---Filtros-->
-<select [(ngModel)]="estrella" (change)="FiltraEstrellas()">
+<select
+  [(ngModel)]="estrella"
+  (change)="FiltraEstrellas(estrella)"
+  class="form-control"
+  [ngStyle]="{
+    'background-color': estrella == 0 ? 'white' : 'aquamarine'
+  }"
+>
   <option value="1">⭐</option>
   <option value="2">⭐⭐</option>
   <option value="3">⭐⭐⭐</option>
   <option value="4">⭐⭐⭐⭐</option>
   <option value="5">⭐⭐⭐⭐⭐</option>
 </select>
+<br />
+<input
+  type="text"
+  [(ngModel)]="filtro"
+  class="form-control form-control"
+  placeholder="Buscar Pelicula"
+  [ngStyle]="{
+    'background-color': filtro === '' ? 'white' : 'aquamarine'
+  }"
+/>
 <br /><br />
-<input type="text" [(ngModel)]="filtro" placeholder="Buscar Pelicula" />
-<br /><br />
-<button type="button" class="btn btn-secondary" (click)="FiltraPeli()">
+<button type="button" class="btn btn-secondary" (click)="FiltraPeli(filtro)">
   Buscar
 </button>
+&nbsp;
 <button type="button" class="btn btn-secondary" (click)="Reset()">
   Reiniciar
 </button>
@@ -20,9 +36,15 @@
 <!---Lista-->
 <b>Peliculas</b><bR />
 <ul class="list-unstyled text-center">
-  <div *ngFor="let dato of datoFiltrado">
+  <div *ngFor="let dato of datosFiltrado">
     <li class="mb-1">
-      <button class="btn btn-toggle" (click)="Selecciona(dato.price)">
+      <button
+        class="btn btn-toggle"
+        (click)="Selecciona(dato.price)"
+        [ngStyle]="{
+          color: datosElegido?.product === dato.product ? 'blue' : 'black'
+        }"
+      >
         {{ dato.product }} &nbsp; &nbsp; &nbsp;&#10095;
       </button>
     </li>

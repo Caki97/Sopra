@@ -4,6 +4,7 @@ type producto = {
   product: string;
   image: string;
   price: number;
+  fav: boolean;
   currency: string;
   rating: number;
   description: string;
@@ -25,13 +26,13 @@ type review = {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   datos: producto[] = [
     {
       image:
         'https://pics.filmaffinity.com/a_man_called_otto-750379114-mmed.jpg',
       product: 'A Man Called Otto',
       price: 1000,
+      fav: false,
       currency: '€',
       rating: 4,
       description:
@@ -41,6 +42,7 @@ export class AppComponent {
           image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
           product: 'Babylon',
           price: 4000,
+          fav: false,
           currency: '€',
           rating: 3,
           description:
@@ -51,6 +53,7 @@ export class AppComponent {
             'https://pics.filmaffinity.com/everything_everywhere_all_at_once-245462960-mmed.jpg',
           product: 'Everything Everywhere All at Once',
           price: 2500,
+          fav: false,
           currency: '€',
           rating: 5,
           description:
@@ -60,6 +63,7 @@ export class AppComponent {
           image: 'https://pics.filmaffinity.com/the_menu-905441147-mmed.jpg',
           product: 'The Menu',
           price: 2000,
+          fav: false,
           currency: '€',
           rating: 3,
           description:
@@ -89,6 +93,7 @@ export class AppComponent {
       image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
       product: 'Babylon',
       price: 4000,
+      fav: false,
       currency: '€',
       rating: 3,
       description:
@@ -99,6 +104,7 @@ export class AppComponent {
             'https://pics.filmaffinity.com/a_man_called_otto-750379114-mmed.jpg',
           product: 'A Man Called Otto',
           price: 1000,
+          fav: false,
           currency: '€',
           rating: 4,
           description:
@@ -109,6 +115,7 @@ export class AppComponent {
             'https://pics.filmaffinity.com/everything_everywhere_all_at_once-245462960-mmed.jpg',
           product: 'Everything Everywhere All at Once',
           price: 2500,
+          fav: false,
           currency: '€',
           rating: 5,
           description:
@@ -118,6 +125,7 @@ export class AppComponent {
           image: 'https://pics.filmaffinity.com/the_menu-905441147-mmed.jpg',
           product: 'The Menu',
           price: 2000,
+          fav: false,
           currency: '€',
           rating: 3,
           description:
@@ -148,6 +156,7 @@ export class AppComponent {
         'https://pics.filmaffinity.com/everything_everywhere_all_at_once-245462960-mmed.jpg',
       product: 'Everything Everywhere All at Once',
       price: 2500,
+      fav: false,
       currency: '€',
       rating: 5,
       description:
@@ -158,6 +167,7 @@ export class AppComponent {
             'https://pics.filmaffinity.com/a_man_called_otto-750379114-mmed.jpg',
           product: 'A Man Called Otto',
           price: 1000,
+          fav: false,
           currency: '€',
           rating: 4,
           description:
@@ -167,6 +177,7 @@ export class AppComponent {
           image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
           product: 'Babylon',
           price: 4000,
+          fav: false,
           currency: '€',
           rating: 3,
           description:
@@ -196,6 +207,7 @@ export class AppComponent {
       image: 'https://pics.filmaffinity.com/the_menu-905441147-mmed.jpg',
       product: 'The Menu',
       price: 2000,
+      fav: false,
       currency: '€',
       rating: 3,
       description:
@@ -205,6 +217,7 @@ export class AppComponent {
           image: 'https://pics.filmaffinity.com/babylon-747027954-mmed.jpg',
           product: 'Babylon',
           price: 4000,
+          fav: false,
           currency: '€',
           rating: 3,
           description:
@@ -215,6 +228,7 @@ export class AppComponent {
             'https://pics.filmaffinity.com/everything_everywhere_all_at_once-245462960-mmed.jpg',
           product: 'Everything Everywhere All at Once',
           price: 2500,
+          fav: false,
           currency: '€',
           rating: 5,
           description:
@@ -241,14 +255,53 @@ export class AppComponent {
       ],
     },
   ];
-  
-  datoElegido: producto = this.datos[0];
 
-  Selecciona(datos: producto) {
-    this.datoElegido= datos;
+  datoElegido: producto = this.datos[0];
+  datoFiltrado = this.datos;
+
+  filtro: string = '';
+  estrella: number = 0;
+
+  Selecciona(precio: number) {
+    const datoEncontrado = this.datos.find((dato) => dato.price === precio);
+    this.datoElegido = datoEncontrado ?? this.datoElegido;
   }
 
-  EliminaPeli(datos: producto){
-    // this.datosFiltrado= datos;
+  EliminaPeli() {
+    this.datos.splice(
+      this.datos.findIndex((prod) => {
+        return prod.product === this.datoElegido.product;
+      }),
+      1
+    );
+    this.datoElegido = this.datos[0];
+    this.datoFiltrado = this.datos;
+  }
+
+  Favoritos() {
+    if (this.datoElegido['fav'] === false) {
+      this.datoElegido['fav'] = true;
+    } else {
+      this.datoElegido['fav'] = false;
+    }
+  }
+
+  FiltraEstrellas(estrella: number) {
+    this.datoFiltrado = this.datos.filter((datos) => datos.rating == estrella);
+    this.datoElegido = this.datoFiltrado[0];
+  }
+
+  FiltraPeli(filtro: string) {
+    this.datoFiltrado = this.datos.filter((datos) =>
+      datos.product.toLowerCase().includes(filtro.toLowerCase())
+    );
+    this.datoElegido = this.datoFiltrado[0];
+  }
+
+  Reset() {
+    this.datoFiltrado = this.datos;
+    this.datoElegido = this.datoFiltrado[0];
+    this.estrella = 0;
+    this.filtro = '';
   }
 }
