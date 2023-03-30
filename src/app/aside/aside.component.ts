@@ -1,5 +1,4 @@
-import { Component,EventEmitter, Input, Output} from '@angular/core';
-
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 type producto = {
   product: string;
@@ -24,10 +23,9 @@ type review = {
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
-  styleUrls: ['./aside.component.css']
+  styleUrls: ['./aside.component.css'],
 })
-export class AsideComponent{
-
+export class AsideComponent {
   @Input() datos: producto[] | undefined;
   @Input() datosElegido: producto | undefined;
   @Input() datosFiltrado: producto[] | undefined;
@@ -37,7 +35,6 @@ export class AsideComponent{
   @Output() Reseteado = new EventEmitter<any>();
   @Output() Filtrado = new EventEmitter<any>();
   @Output() FiltradoEstrella = new EventEmitter<any>();
-
 
   Selecciona(precio: number) {
     this.Seleccionado.emit(precio);
@@ -53,5 +50,7 @@ export class AsideComponent{
 
   Reset() {
     this.Reseteado.emit();
+    this.filtro = "";
+    this.estrella = 0;
   }
 }

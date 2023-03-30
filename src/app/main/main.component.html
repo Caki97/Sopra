@@ -1,97 +1,123 @@
 <!---Main-->
-<div *ngIf=datoElegido>
-<div
-  class="row border-top border-dark"
-  [ngStyle]="{
-    'background-color': datoElegido.fav === true ? 'black' : 'grey',
-    color: datoElegido.fav === true ? 'white' : 'black'
-  }"
->
-  <!---Informacion-->
-  <div class="col-md-5">
-    <img [src]="datoElegido.image" class="img" />
-  </div>
-  <div class="col-md-7 text-start">
-    <br />
-    <h2>
-      {{ datoElegido.product }}
-      <button
-        class="btn btn-secondary btn-lg"
-        (click)="Favoritos()"
-        [ngStyle]="{
-          color: datoElegido.fav === true ? 'red' : 'white'
-        }"
-      >
-        ♥
+<div *ngIf="datoElegido">
+  <div
+    class="row border-top border-dark"
+    [ngStyle]="{
+      'background-color': datoElegido.fav === true ? 'black' : 'grey',
+      color: datoElegido.fav === true ? 'white' : 'black'
+    }"
+  >
+    <!---Informacion-->
+    <div class="col-md-5">
+      <img [src]="datoElegido.image" class="img" />
+    </div>
+    <div class="col-md-7 text-start">
+      <br />
+      <h2>
+        {{ datoElegido.product }}
+        <button
+          class="btn btn-secondary btn-lg"
+          (click)="Favoritos()"
+          [ngStyle]="{
+            color: datoElegido.fav === true ? 'red' : 'white'
+          }"
+        >
+          ♥
+        </button>
+      </h2>
+      <br />
+      <div class="stars-outer">
+        <div
+          class="stars-inner"
+          [style.width.%]="datoElegido.rating * 20"
+          [ngStyle]="{
+            color:
+              datoElegido.rating > 4
+                ? 'yellow'
+                : datoElegido.rating <= 4 && datoElegido.rating >= 3
+                ? 'orange'
+                : 'red'
+          }"
+        ></div>
+      </div>
+      {{ datoElegido.rating }}
+      <hr />
+      <br />
+      <h2>{{ datoElegido.price }} Millones de {{ datoElegido.currency }}</h2>
+      <br />
+      <hr />
+      <br />
+      {{ datoElegido.description }}
+      <br /><br />
+      <hr width="100px" />
+      <button type="button" class="btn btn-info mt-2" (click)="EliminaPeli()">
+        Borrar
       </button>
-    </h2>
-    <br />
-      <span
-        *ngFor="let estrella of estrellasAmarillas; let indexEstrella = index"
-        [ngClass]="{ 'estrella-amarilla': indexEstrella < datoElegido!.rating }"
-        >★</span
-      > {{ datoElegido.rating }}&nbsp;reviews
-    <hr />
-    <br />
-    <h2>{{ datoElegido.price }} Millones de {{ datoElegido.currency }}</h2>
-    <br />
-    <hr />
-    <br />
-    {{ datoElegido.description }}
-    <br /><br />
-    <hr width="100px" />
-    <button type="button" class="btn btn-info mt-2" (click)="EliminaPeli()">
-      Borrar
-    </button>
-  </div>
-  <!---Similares-->
-  <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
-    <h1><u>Peliculas relacionadas</u></h1>
-  </div>
-  <div class="col-md-6" *ngFor="let datas2 of datoElegido.similarProducts">
-    <div class="row">
-      <div class="col-md-6 justify-content-center mt-1 mb-1">
-        <a (click)="AbrirDialogo(datas2)"
-          ><img [src]="datas2.image" width="100%"
-        /></a>
-      </div>
-      <div class="col-md-6">
-        <h3>{{ datas2.product }}</h3>
-        <span
-          *ngFor="let estrella of estrellasAmarillas; let index = index"
-          [ngClass]="{ 'estrella-amarilla': index < datas2.rating }"
-          >★</span
-        >
-        <h5>{{ datas2.price }} Millones de {{ datas2.currency }}</h5>
+    </div>
+    <!---Similares-->
+    <div class="col-md-12 border-top border-dark text-center pt-3 mb-3">
+      <h1><u>Peliculas relacionadas</u></h1>
+    </div>
+    <div class="col-md-6" *ngFor="let datas2 of datoElegido.similarProducts">
+      <div class="row">
+        <div class="col-md-6 justify-content-center mt-1 mb-1">
+          <a (click)="AbrirDialogo(datas2)"
+            ><img [src]="datas2.image" width="100%"
+          /></a>
+        </div>
+        <div class="col-md-6">
+          <h3>{{ datas2.product }}</h3>
+          <div class="stars-outer">
+            <div
+              class="stars-inner"
+              [style.width.%]="datas2.rating * 20"
+              [ngStyle]="{
+                color:
+                  datas2.rating > 4
+                    ? 'yellow'
+                    : datas2.rating <= 4 && datas2.rating >= 3
+                    ? 'orange'
+                    : 'red'
+              }"
+            ></div>
+          </div>
+          <h5>{{ datas2.price }} Millones de {{ datas2.currency }}</h5>
+        </div>
       </div>
     </div>
-  </div>
-  <!---Opiniones-->
-  <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
-    <h1><u>Opiniones</u></h1>
-  </div>
-  <div class="col-md-12 mb-3" *ngFor="let datas3 of datoElegido.reviews">
-    <div class="row">
-      <div class="col-md-2">
-        <img [src]="datas3.image" class="img-thumbnail" />
-      </div>
-      <div class="col-md-2">
-        <h4>{{ datas3.name }}</h4>
-        {{ datas3.date }}
-
-        <span
-          *ngFor="let estrella of estrellasAmarillas; let index = index"
-          [ngClass]="{ 'estrella-amarilla': index < datas3.rating }"
-          >★</span
-        >
-      </div>
-      <div class="col-md-8">
-        {{ datas3.opinion }}
-      </div>
+    <!---Opiniones-->
+    <div class="col-md-12 border-top border-dark text-start pt-3 mb-3">
+      <h1><u>Opiniones</u></h1>
     </div>
-    <hr width="100px" />
+    <div class="col-md-12 mb-3" *ngFor="let datas3 of datoElegido.reviews">
+      <div class="row">
+        <div class="col-md-2">
+          <img [src]="datas3.image" class="img-thumbnail" />
+        </div>
+        <div class="col-md-2">
+          <h4>{{ datas3.name }}</h4>
+          <div class="stars-outer">
+            <div
+              class="stars-inner"
+              [style.width.%]="datas3.rating * 20"
+              [ngStyle]="{
+                color:
+                  datas3.rating > 4
+                    ? 'yellow'
+                    : datas3.rating <= 4 && datas3.rating >= 3
+                    ? 'orange'
+                    : 'red'
+              }"
+            ></div>
+          </div>
+          <br />
+          {{ datas3.date }}
+        </div>
+        <div class="col-md-8">
+          {{ datas3.opinion }}
+        </div>
+      </div>
+      <hr width="100px" />
+    </div>
   </div>
-</div>
-
-  
 </div>

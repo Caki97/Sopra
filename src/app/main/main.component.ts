@@ -34,8 +34,6 @@ export class MainComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  estrellasAmarillas = Array(5).fill(true);
-
   EliminaPeli() {
     this.EliminarPeli.emit();
   }
@@ -46,7 +44,7 @@ export class MainComponent {
 
   AbrirDialogo(datos: any) {
     this.dialog.open(DialogComponent, {
-      width: "400px",
+      width: '400px',
       data: {
         image: datos.image,
         product: datos.product,
@@ -54,5 +52,4 @@ export class MainComponent {
       },
     });
   }
-
 }

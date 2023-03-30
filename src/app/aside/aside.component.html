@@ -5,7 +5,7 @@
   (change)="FiltraEstrellas(estrella)"
   class="form-control"
   [ngStyle]="{
-    'background-color': estrella == 0 ? 'white' : 'aquamarine'
+    'background-color': estrella === 0 ? 'white' : 'aquamarine'
   }"
 >
   <option value="1">⭐</option>
@@ -24,7 +24,7 @@
     'background-color': filtro === '' ? 'white' : 'aquamarine'
   }"
 />
-<br /><br />
+<br />
 <button type="button" class="btn btn-secondary" (click)="FiltraPeli(filtro)">
   Buscar
 </button>

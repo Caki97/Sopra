@@ -34,7 +34,7 @@ export class AppComponent {
       price: 1000,
       fav: false,
       currency: '€',
-      rating: 4,
+      rating: 2.7,
       description:
         'Otto Anderson (Tom Hanks) es un viudo cascarrabias y muy obstinado. Cuando una alegre joven familia se muda a la casa de al lado, Otto encuentra la horma de su zapato en la espabilada, y muy embarazada, Marisol, con la que entablará una muy improbable amistad que pondrá su mundo patas arriba... Remake de la película sueca A Man Called Ove de 2015.',
       similarProducts: [
@@ -44,7 +44,7 @@ export class AppComponent {
           price: 4000,
           fav: false,
           currency: '€',
-          rating: 3,
+          rating: 3.4,
           description:
             'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
         },
@@ -55,7 +55,7 @@ export class AppComponent {
           price: 2500,
           fav: false,
           currency: '€',
-          rating: 5,
+          rating: 4.8,
           description:
             'Cuando una ruptura interdimensional altera la realidad, Evelyn (Michelle Yeoh), una inmigrante china en Estados Unidos, se ve envuelta en una aventura salvaje en la que solo ella puede salvar el mundo. Perdida en los mundos infinitos del multiverso, esta heroína inesperada debe canalizar sus nuevos poderes para luchar contra los extraños y desconcertantes peligros del multiverso mientras el destino del mundo pende de un hilo',
         },
@@ -65,7 +65,7 @@ export class AppComponent {
           price: 2000,
           fav: false,
           currency: '€',
-          rating: 3,
+          rating: 3.5,
           description:
             'Una joven pareja viaja a uno de los destinos más exclusivos del mundo para cenar en un restaurante que ofrece una experiencia culinaria única. Sin embargo, el chef (Fiennes) ha preparado un ingrediente secreto que tendrá un resultado sorprendente en los dos enamorados.',
         },
@@ -95,7 +95,7 @@ export class AppComponent {
       price: 4000,
       fav: false,
       currency: '€',
-      rating: 3,
+      rating: 3.4,
       description:
         'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
       similarProducts: [
@@ -106,7 +106,7 @@ export class AppComponent {
           price: 1000,
           fav: false,
           currency: '€',
-          rating: 4,
+          rating: 2.7,
           description:
             'Otto Anderson (Tom Hanks) es un viudo cascarrabias y muy obstinado. Cuando una alegre joven familia se muda a la casa de al lado, Otto encuentra la horma de su zapato en la espabilada, y muy embarazada, Marisol, con la que entablará una muy improbable amistad que pondrá su mundo patas arriba... Remake de la película sueca A Man Called Ove de 2015.',
         },
@@ -117,7 +117,7 @@ export class AppComponent {
           price: 2500,
           fav: false,
           currency: '€',
-          rating: 5,
+          rating: 4.8,
           description:
             'Cuando una ruptura interdimensional altera la realidad, Evelyn (Michelle Yeoh), una inmigrante china en Estados Unidos, se ve envuelta en una aventura salvaje en la que solo ella puede salvar el mundo. Perdida en los mundos infinitos del multiverso, esta heroína inesperada debe canalizar sus nuevos poderes para luchar contra los extraños y desconcertantes peligros del multiverso mientras el destino del mundo pende de un hilo',
         },
@@ -127,7 +127,7 @@ export class AppComponent {
           price: 2000,
           fav: false,
           currency: '€',
-          rating: 3,
+          rating: 3.5,
           description:
             'Una joven pareja viaja a uno de los destinos más exclusivos del mundo para cenar en un restaurante que ofrece una experiencia culinaria única. Sin embargo, el chef (Fiennes) ha preparado un ingrediente secreto que tendrá un resultado sorprendente en los dos enamorados.',
         },
@@ -158,7 +158,7 @@ export class AppComponent {
       price: 2500,
       fav: false,
       currency: '€',
-      rating: 5,
+      rating: 4.8,
       description:
         'Cuando una ruptura interdimensional altera la realidad, Evelyn (Michelle Yeoh), una inmigrante china en Estados Unidos, se ve envuelta en una aventura salvaje en la que solo ella puede salvar el mundo. Perdida en los mundos infinitos del multiverso, esta heroína inesperada debe canalizar sus nuevos poderes para luchar contra los extraños y desconcertantes peligros del multiverso mientras el destino del mundo pende de un hilo',
       similarProducts: [
@@ -169,7 +169,7 @@ export class AppComponent {
           price: 1000,
           fav: false,
           currency: '€',
-          rating: 4,
+          rating: 2.7,
           description:
             'Otto Anderson (Tom Hanks) es un viudo cascarrabias y muy obstinado. Cuando una alegre joven familia se muda a la casa de al lado, Otto encuentra la horma de su zapato en la espabilada, y muy embarazada, Marisol, con la que entablará una muy improbable amistad que pondrá su mundo patas arriba... Remake de la película sueca A Man Called Ove de 2015.',
         },
@@ -179,7 +179,7 @@ export class AppComponent {
           price: 4000,
           fav: false,
           currency: '€',
-          rating: 3,
+          rating: 3.4,
           description:
             'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
         },
@@ -209,7 +209,7 @@ export class AppComponent {
       price: 2000,
       fav: false,
       currency: '€',
-      rating: 3,
+      rating: 3.5,
       description:
         'Una joven pareja viaja a uno de los destinos más exclusivos del mundo para cenar en un restaurante que ofrece una experiencia culinaria única. Sin embargo, el chef (Fiennes) ha preparado un ingrediente secreto que tendrá un resultado sorprendente en los dos enamorados.',
       similarProducts: [
@@ -219,7 +219,7 @@ export class AppComponent {
           price: 4000,
           fav: false,
           currency: '€',
-          rating: 3,
+          rating: 3.4,
           description:
             'Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.',
         },
@@ -230,7 +230,7 @@ export class AppComponent {
           price: 2500,
           fav: false,
           currency: '€',
-          rating: 5,
+          rating: 4.8,
           description:
             'Cuando una ruptura interdimensional altera la realidad, Evelyn (Michelle Yeoh), una inmigrante china en Estados Unidos, se ve envuelta en una aventura salvaje en la que solo ella puede salvar el mundo. Perdida en los mundos infinitos del multiverso, esta heroína inesperada debe canalizar sus nuevos poderes para luchar contra los extraños y desconcertantes peligros del multiverso mientras el destino del mundo pende de un hilo',
         },
@@ -279,15 +279,17 @@ export class AppComponent {
   }
 
   Favoritos() {
-    if (this.datoElegido['fav'] === false) {
-      this.datoElegido['fav'] = true;
+    if (this.datoElegido.fav === false) {
+      this.datoElegido.fav = true;
     } else {
-      this.datoElegido['fav'] = false;
+      this.datoElegido.fav = false;
     }
   }
 
   FiltraEstrellas(estrella: number) {
-    this.datoFiltrado = this.datos.filter((datos) => datos.rating == estrella);
+    this.datoFiltrado = this.datos.filter(
+      (datos) => Math.floor(datos.rating) == estrella
+    );
     this.datoElegido = this.datoFiltrado[0];
   }
 
@@ -301,7 +303,5 @@ export class AppComponent {
   Reset() {
     this.datoFiltrado = this.datos;
     this.datoElegido = this.datoFiltrado[0];
-    this.estrella = 0;
-    this.filtro = '';
   }
 }
