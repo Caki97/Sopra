@@ -13,8 +13,9 @@ const routes: Routes = [
       import('./home/home.module').then((module) => module.HomeModule),
   },
   {
-    path: '**',
+    path: '',
     redirectTo: 'home',
+    pathMatch: 'full'
   },
 ];
 
