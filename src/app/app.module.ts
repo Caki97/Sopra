@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { ContactModule } from './contact/contact.module';
-// import { WebModule } from './web/web.module';
+import { HomeModule } from './home/home.module';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,7 +21,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatDialogModule,
     ContactModule,
-    // WebModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
