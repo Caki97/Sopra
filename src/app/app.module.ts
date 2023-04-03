@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { GuardModule } from './guard/guard.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatDialogModule,
     ContactModule,
-    HomeModule
+    HomeModule,
+    GuardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
