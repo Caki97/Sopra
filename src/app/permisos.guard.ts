@@ -5,7 +5,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-
+import { MainComponent } from './home/padre/main/main.component';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class PermisosGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (new Date().getMinutes() % 2 == 0) {
+    if (new Date().getMinutes() % 2 != 0) {
       Swal.fire({
         title: 'No tienes permisos',
         imageUrl: 'https://media.giphy.com/media/3oKIPD4zpQPe4OMCyc/giphy.gif',
