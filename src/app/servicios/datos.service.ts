@@ -10,35 +10,35 @@ export class DatosService {
 
   constructor(private http: HttpClient) {}
 
-  private _datos: producto[] = [];
-  private _datosSelected: producto | null = null;
+  // private _datos: producto[] = [];
+  // private _datosSelected: producto | null = null;
   public $datos: BehaviorSubject<producto[]> = new BehaviorSubject<producto[]>([]);
 
-  get datos(): producto[] {
-    return this._datos;
-  }
+  // get datos(): producto[] {
+  //   return this._datos;
+  // }
 
-  set datos(newdatos: producto[]) {
-    this._datos = newdatos;
-  }
+  // set datos(newdatos: producto[]) {
+  //   this._datos = newdatos;
+  // }
 
-  getdatoseleccionado(): producto | null {
-    return this._datosSelected;
-  }
+  // getdatoseleccionado(): producto | null {
+  //   return this._datosSelected;
+  // }
 
-  setdatoseleccionado(newdato: producto | null) {
-    this._datosSelected = newdato;
-  }
+  // setdatoseleccionado(newdato: producto | null) {
+  //   this._datosSelected = newdato;
+  // }
 
   getDataProduct() {
     const url = "/assets/data/datos.json";
     this.http.get<producto[]>(url).subscribe({
       next:(response) => {
         if (!response) return;
-        const firstindex = 0;
-        this._datos = response;
-        this.$datos.next(response)
-        this._datosSelected = response[firstindex];
+        // const firstindex = 0;
+        // this._datos = response;
+        // this._datosSelected = response[firstindex];
+        this.$datos.next(response);
       },
       error: (error) => {
         console.log("Ha fallado");
@@ -48,11 +48,4 @@ export class DatosService {
       },
     });
   }
-
-  // private casoOk(response: producto[]) {
-  //   if (!response) return;
-  //   const firstindex = 0;
-  //   this._datos = response;
-  //   this._datosSelected = response[firstindex];
-  // }
 }
