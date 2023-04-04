@@ -1,44 +1,36 @@
-import { Component } from '@angular/core';
-import * as datos from '../../data/datos.json';
-
-type producto = {
-  image: string;
-  product: string;
-  price: number;
-  fav: boolean;
-  currency: string;
-  rating: number;
-  description: string;
-  similarProducts?: producto[];
-  reviews?: review[];
-};
-
-type review = {
-  image: string;
-  name: string;
-  rating: number;
-  opinion: string;
-  date: string;
-};
+import { Component, OnInit } from '@angular/core';
+import { producto } from 'src/app/interfaces/producto.interface';
+import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
   selector: 'app-padre',
   templateUrl: './padre.component.html',
   styleUrls: ['./padre.component.css']
 })
-export class PadreComponent {
-
-  datos:producto[] = datos;
-
+export class PadreComponent implements OnInit {
+  
+  datos:producto[] = [];
   datoElegido: producto = this.datos[0];
   datoFiltrado = this.datos;
 
+  constructor(public datosService: DatosService) { }
+
+  ngOnInit(): void{
+    this.datosService.$datos.subscribe(
+      {
+        next:(response) => {
+          this.datos = response;
+          this.datoElegido = this.datos[0];
+          this.datoFiltrado = this.datos;
+        }
+      }
+    )
+  }
+
+  
+
   filtro: string = '';
   estrella: number = 0;
-
-  getJsonContent(){
-    return (datos as producto[]);
-  }
 
   Selecciona(precio: number) {
     const datoEncontrado = this.datos.find((dato) => dato.price === precio);

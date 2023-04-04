@@ -7,10 +7,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { ContactModule } from './contact/contact.module';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
 
+// import { TranslateLoader, TranslateModule } from 
+// import {}
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './componentes/header/header.component';
 import { GuardModule } from './guard/guard.module';
 
 @NgModule({
@@ -23,7 +26,13 @@ import { GuardModule } from './guard/guard.module';
     MatDialogModule,
     ContactModule,
     HomeModule,
-    GuardModule
+    GuardModule,
+    HttpClientModule,
+    // TranslateModule.forRoot{
+    //   loader:{
+
+    //   }
+    // }
   ],
   providers: [],
   bootstrap: [AppComponent],

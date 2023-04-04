@@ -40,21 +40,21 @@
       {
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Pepe_2018.jpg/320px-Pepe_2018.jpg",
         "name": "Pepe",
-        "raging": 5,
+        "rating": 5,
         "opinion": "Me ha gustado",
-        "date": "Ayer por la tarde, 2023"
+        "date": "10:30 10-05-2022"
       },
       {
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4XhoZ6BdgHuwHjx_YqUiDwS9MQbJo-CGSvg&usqp=CAU",
         "name": "Marge Simpson",
-        "raging": 2.5,
+        "rating": 2.5,
         "opinion": "No me ha gustado",
-        "date": "La semana pasada, 2023"
+        "date": "10-05-2022 10:30"
       }
     ]
   },
   {
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4XhoZ6BdgHuwHjx_YqUiDwS9MQbJo-CGSvg&usqp=CAU",
+    "image": "https://pics.filmaffinity.com/babylon-747027954-mmed.jpg",
     "product": "Babylon",
     "price": 4000,
     "fav": false,
@@ -94,16 +94,16 @@
       {
         "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Mariano_Rajoy_in_2018.jpg",
         "name": "Rajoy",
-        "raging": 5,
+        "rating": 5,
         "opinion": "Somos sentimientos y tenemos seres humanos",
-        "date": "Hace 1 mes, 2023"
+        "date": "10-05-2022 10:30"
       },
       {
         "image": "https://www.realmadrid.com/img/vertical_380px/cristiano_550x650_20180917025046.jpg",
         "name": "CR7",
-        "raging": 4,
+        "rating": 4,
         "opinion": "Suuuuuuuuuuuu",
-        "date": "Hace 2 semanas, 2023"
+        "date": "10-05-2022 10:30"
       }
     ]
   },
@@ -139,16 +139,16 @@
       {
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Pepe_2018.jpg/320px-Pepe_2018.jpg",
         "name": "Pepe",
-        "raging": 4,
+        "rating": 4,
         "opinion": "Me ha gustado",
-        "date": "Ayer por la tarde, 2023"
+        "date": "10-05-2022 10:30"
       },
       {
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4XhoZ6BdgHuwHjx_YqUiDwS9MQbJo-CGSvg&usqp=CAU",
         "name": "Marge Simpson",
-        "raging": 2,
+        "rating": 2,
         "opinion": "No me ha gustado",
-        "date": "primer día, 2023"
+        "date": "10-05-2022 10:30"
       }
     ]
   },
@@ -182,18 +182,18 @@
     ],
     "reviews": [
       {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Pepe_2018.jpg/320px-Pepe_2018.jpg",
-        "name": "Pepe",
-        "rating": 5,
-        "opinion": "Me ha gustado",
-        "date": "Ayer por la tarde, 2023"
+        "image": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/01/hipertextual-es-figura-baby-yoda-mas-real-que-podras-comprar-2020062519.jpeg?fit=1920%2C1080&quality=50&strip=all&ssl=1",
+        "name": "Baby Yoda",
+        "rating": 3.4,
+        "opinion": "asdasdasdadasdasdasdasd",
+        "date": "10-05-2022 10:30"
       },
       {
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4XhoZ6BdgHuwHjx_YqUiDwS9MQbJo-CGSvg&usqp=CAU",
-        "name": "Marge Simpson",
-        "rating": 4,
-        "opinion": "No me ha gustado",
-        "date": "La semana pasada, 2023"
+        "image": "https://i.pinimg.com/originals/c6/9f/53/c69f5331531ca83975f47a6ee688ef56.jpg",
+        "name": "Gerald de rivia",
+        "rating": 4.2,
+        "opinion": "Keeeeeee",
+        "date": "10-05-2022 10:30"
       }
     ]
   }

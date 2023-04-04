@@ -20,6 +20,6 @@ import { MainComponent } from './padre/main/main.component';
     CommonModule,
     HomeRoutingModule,
     FormsModule
-  ]
+  ],
 })
 export class HomeModule { }
