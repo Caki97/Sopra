@@ -27,8 +27,6 @@ export class PadreComponent implements OnInit {
     )
   }
 
-  
-
   filtro: string = '';
   estrella: number = 0;
 

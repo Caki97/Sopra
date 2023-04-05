@@ -1,24 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-type producto = {
-  product: string;
-  image: string;
-  price: number;
-  fav: boolean;
-  currency: string;
-  rating: number;
-  description: string;
-  similarProducts?: producto[];
-  reviews?: review[];
-};
-
-type review = {
-  image: string;
-  name: string;
-  rating: number;
-  opinion: string;
-  date: string;
-};
+import { producto } from 'src/app/interfaces/producto.interface';
 
 @Component({
   selector: 'app-aside',

@@ -7,7 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { ContactModule } from './contact/contact.module';
 import { HomeModule } from './home/home.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // import { TranslateLoader, TranslateModule } from 
 // import {}
@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { GuardModule } from './guard/guard.module';
+import { FechaInterceptor } from './interceptor/fecha.interceptor';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -34,7 +35,13 @@ import { GuardModule } from './guard/guard.module';
     //   }
     // }
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FechaInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,15 +12,16 @@ export class DatosService {
 
   // private _datos: producto[] = [];
   // private _datosSelected: producto | null = null;
-  public $datos: BehaviorSubject<producto[]> = new BehaviorSubject<producto[]>([]);
+  
+  $datos: BehaviorSubject<producto[]> = new BehaviorSubject<producto[]>([]);
 
   // get datos(): producto[] {
   //   return this._datos;
   // }
 
-  // set datos(newdatos: producto[]) {
-  //   this._datos = newdatos;
-  // }
+  setdatos(newdatos: producto[]) {
+    this.$datos.next(newdatos);
+  }
 
   // getdatoseleccionado(): producto | null {
   //   return this._datosSelected;
@@ -35,16 +36,15 @@ export class DatosService {
     this.http.get<producto[]>(url).subscribe({
       next:(response) => {
         if (!response) return;
+        this.$datos.next(response);
         // const firstindex = 0;
         // this._datos = response;
         // this._datosSelected = response[firstindex];
-        this.$datos.next(response);
       },
       error: (error) => {
         console.log("Ha fallado");
       },
       complete: () => {
-        console.log('Terminado');
       },
     });
   }
