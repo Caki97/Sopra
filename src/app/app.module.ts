@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { GuardModule } from './guard/guard.module';
 import { FechaInterceptor } from './interceptor/fecha.interceptor';
+import { CarroModule } from './carro/carro.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -28,6 +29,7 @@ import { FechaInterceptor } from './interceptor/fecha.interceptor';
     ContactModule,
     HomeModule,
     GuardModule,
+    CarroModule,
     HttpClientModule,
     // TranslateModule.forRoot{
     //   loader:{

@@ -7,12 +7,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DatosService {
-
   constructor(private http: HttpClient) {}
 
   // private _datos: producto[] = [];
   // private _datosSelected: producto | null = null;
-  
+
   $datos: BehaviorSubject<producto[]> = new BehaviorSubject<producto[]>([]);
 
   // get datos(): producto[] {
@@ -32,9 +31,9 @@ export class DatosService {
   // }
 
   getDataProduct() {
-    const url = "/assets/data/datos.json";
+    const url = '/assets/data/datos.json';
     this.http.get<producto[]>(url).subscribe({
-      next:(response) => {
+      next: (response) => {
         if (!response) return;
         this.$datos.next(response);
         // const firstindex = 0;
@@ -44,8 +43,7 @@ export class DatosService {
       error: (error) => {
         console.log(error);
       },
-      complete: () => {
-      },
+      complete: () => {},
     });
   }
 }

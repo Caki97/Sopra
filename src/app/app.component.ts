@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { DatosService } from './servicios/datos.service';
+import { CarroService } from './servicios/carro.service';
 // import { TransalateService }
 // import { ProductService }
 
@@ -11,7 +12,7 @@ import { DatosService } from './servicios/datos.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(public datosService: DatosService) { }
+  constructor(public datosService: DatosService, public carroService: CarroService) { }
 
  ngOnInit(){
    this.datosService.getDataProduct();

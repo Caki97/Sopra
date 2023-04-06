@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { producto } from 'src/app/interfaces/producto.interface';
+import { CarroService } from 'src/app/servicios/carro.service';
 import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class PadreComponent implements OnInit {
   datoFiltrado = this.datos;
   datoCarro: number[] = [];
 
-  constructor(public datosService: DatosService) {}
+  constructor(public datosService: DatosService, public carroService: CarroService) {}
 
   ngOnInit(): void {
     this.datosService.$datos.subscribe({
@@ -21,6 +22,11 @@ export class PadreComponent implements OnInit {
         this.datos = response;
         this.datoElegido = this.datos[0];
         this.datoFiltrado = this.datos;
+      },
+    });
+     this.carroService.$datoscarro.subscribe({
+      next: (response) => {
+        this.datoCarro = response;
       },
     });
   }
@@ -76,5 +82,6 @@ export class PadreComponent implements OnInit {
       return prod.product === this.datoElegido.product;
     });
     this.datoCarro.push(index);
+    this.carroService.setData(this.datoCarro);
   }
 }

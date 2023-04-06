@@ -24,6 +24,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./home/home.module').then((module) => module.HomeModule),
   },
+  {
+    path: 'carro',
+    loadChildren: () =>
+      import('./carro/carro.module').then((module) => module.CarroModule),
+  },
 ];
 
 @NgModule({
