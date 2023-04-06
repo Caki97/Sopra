@@ -42,7 +42,7 @@ export class DatosService {
         // this._datosSelected = response[firstindex];
       },
       error: (error) => {
-        console.log("Ha fallado");
+        console.log(error);
       },
       complete: () => {
       },

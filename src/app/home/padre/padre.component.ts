@@ -5,26 +5,24 @@ import { DatosService } from 'src/app/servicios/datos.service';
 @Component({
   selector: 'app-padre',
   templateUrl: './padre.component.html',
-  styleUrls: ['./padre.component.css']
+  styleUrls: ['./padre.component.css'],
 })
 export class PadreComponent implements OnInit {
-  
-  datos:producto[] = [];
+  datos: producto[] = [];
   datoElegido: producto = this.datos[0];
   datoFiltrado = this.datos;
+  datoCarro: number[] = [];
 
-  constructor(public datosService: DatosService) { }
+  constructor(public datosService: DatosService) {}
 
-  ngOnInit(): void{
-    this.datosService.$datos.subscribe(
-      {
-        next:(response) => {
-          this.datos = response;
-          this.datoElegido = this.datos[0];
-          this.datoFiltrado = this.datos;
-        }
-      }
-    )
+  ngOnInit(): void {
+    this.datosService.$datos.subscribe({
+      next: (response) => {
+        this.datos = response;
+        this.datoElegido = this.datos[0];
+        this.datoFiltrado = this.datos;
+      },
+    });
   }
 
   filtro: string = '';
@@ -72,5 +70,11 @@ export class PadreComponent implements OnInit {
     this.datoFiltrado = this.datos;
     this.datoElegido = this.datoFiltrado[0];
   }
-}
 
+  AnyadirCarro() {
+    const index = this.datos.findIndex((prod) => {
+      return prod.product === this.datoElegido.product;
+    });
+    this.datoCarro.push(index);
+  }
+}

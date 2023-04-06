@@ -12,11 +12,16 @@ export class MainComponent {
   @Input() datoElegido!: producto;
   @Output() EliminarPeli = new EventEmitter<any>();
   @Output() Favoritosemit = new EventEmitter<any>();
+  @Output() AnyadeCarro = new EventEmitter<any>();
 
   constructor(private dialog: MatDialog) {}
 
   EliminaPeli() {
     this.EliminarPeli.emit();
+  }
+
+  AnyadirCarro() {
+    this.AnyadeCarro.emit();
   }
 
   Favoritos() {
