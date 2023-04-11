@@ -47,6 +47,15 @@ export class CarroComponent {
   }
 
   EliminarProducto(index: number) {
+    for (let i = 0; i < this.datosCarro.length; i++) {
+      if( this.datosCarro[i] === index){
+        this.datosCarro.splice(i,1);
+        i--;
+      }
+    }
     this.contador.splice(index, 1);
+    for (let i = 0; i < this.datosCarro.length; i++) {
+      this.precio[i] = this.contador[i] * 7.5;
+    }
   }
 }
