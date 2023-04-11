@@ -29,6 +29,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./carro/carro.module').then((module) => module.CarroModule),
   },
+  {
+    path: 'form',
+    loadChildren: () =>
+      import('./formulario/formulario.module').then((module) => module.FormularioModule),
+  },
 ];
 
 @NgModule({
