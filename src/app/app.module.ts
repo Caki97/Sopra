@@ -5,19 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { ContactModule } from './contact/contact.module';
-import { HomeModule } from './home/home.module';
+import { ContactModule } from './modulos/contact/contact.module';
+import { HomeModule } from './modulos/home/home.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
-// import { TranslateLoader, TranslateModule } from 
-// import {}
+import { GuardModule } from './guard/guard.module';
+import { FechaInterceptor } from './interceptor/fecha.interceptor';
+import { CarroModule } from './modulos/carro/carro.module';
+import { FormularioModule } from './modulos/formulario/formulario.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { GuardModule } from './guard/guard.module';
-import { FechaInterceptor } from './interceptor/fecha.interceptor';
-import { CarroModule } from './carro/carro.module';
-import { FormularioModule } from './formulario/formulario.module';
+
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -33,11 +31,6 @@ import { FormularioModule } from './formulario/formulario.module';
     CarroModule,
     FormularioModule,
     HttpClientModule,
-    // TranslateModule.forRoot{
-    //   loader:{
-
-    //   }
-    // }
   ],
   providers: [
     {

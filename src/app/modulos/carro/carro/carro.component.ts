@@ -48,8 +48,8 @@ export class CarroComponent {
 
   EliminarProducto(index: number) {
     for (let i = 0; i < this.datosCarro.length; i++) {
-      if( this.datosCarro[i] === index){
-        this.datosCarro.splice(i,1);
+      if (this.datosCarro[i] === index) {
+        this.datosCarro.splice(i, 1);
         i--;
       }
     }

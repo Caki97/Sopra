@@ -13,6 +13,7 @@ export class PadreComponent implements OnInit {
   datoElegido: producto = this.datos[0];
   datoFiltrado = this.datos;
   datoCarro: number[] = [];
+  contador: number[] = [];
 
   constructor(public datosService: DatosService, public carroService: CarroService) {}
 
@@ -51,11 +52,7 @@ export class PadreComponent implements OnInit {
   }
 
   Favoritos() {
-    if (this.datoElegido.fav === false) {
-      this.datoElegido.fav = true;
-    } else {
-      this.datoElegido.fav = false;
-    }
+    this.datoElegido.fav = !this.datoElegido.fav;
   }
 
   FiltraEstrellas(estrella: number) {

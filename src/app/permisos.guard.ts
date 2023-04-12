@@ -5,7 +5,6 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MainComponent } from './home/padre/main/main.component';
 import Swal from 'sweetalert2';
 
 @Injectable({

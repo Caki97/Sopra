@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { DatosService } from './servicios/datos.service';
 import { CarroService } from './servicios/carro.service';
-// import { TransalateService }
-// import { ProductService }
 
 @Component({
   selector: 'app-root',

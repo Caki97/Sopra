@@ -9,6 +9,9 @@ import { producto } from 'src/app/interfaces/producto.interface';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent {
+  
+  contador: number[] = [];
+
   @Input() datoElegido!: producto;
   @Output() EliminarPeli = new EventEmitter<any>();
   @Output() Favoritosemit = new EventEmitter<any>();

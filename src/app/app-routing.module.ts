@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'contact',
     loadChildren: () =>
-      import('./contact/contact.module').then((module) => module.ContactModule),
+      import('./modulos/contact/contact.module').then((module) => module.ContactModule),
   },
   {
     path: 'guard',
@@ -22,17 +22,17 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then((module) => module.HomeModule),
+      import('./modulos/home/home.module').then((module) => module.HomeModule),
   },
   {
     path: 'carro',
     loadChildren: () =>
-      import('./carro/carro.module').then((module) => module.CarroModule),
+      import('./modulos/carro/carro.module').then((module) => module.CarroModule),
   },
   {
     path: 'form',
     loadChildren: () =>
-      import('./formulario/formulario.module').then((module) => module.FormularioModule),
+      import('./modulos/formulario/formulario.module').then((module) => module.FormularioModule),
   },
 ];
 

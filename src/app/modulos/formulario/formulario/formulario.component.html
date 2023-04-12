@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <form (ngSubmit)=" anyadirNuevoProducto()" [formGroup]="userForm" autocomplete="off">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Nueva Peli</h1>
+        <div class="form-group mb-3 d-flex justify-content-between col-md-12">
+          <label for="Nombre">
+            Nombre de la Peli
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduce nombre"
+              formControlName="product"
+            />
+            <small *ngIf="validarCampo('product')" class="form-text text-danger"
+              >El nombre de ser mayor que 4 carácteres</small
+            >
+          </label>
+          <label for="Precio">
+            Costo de la peli
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Introduce precio"
+              formControlName="price"
+            />
+            <small *ngIf="validarCampo('price')" class="form-text text-danger"
+              >El precio debe ser mayor a 10</small
+            >
+          </label>
+        </div>
+        <div class="form-group mb-3 col-md-12">
+          <label
+            ><input type="checkbox" formControlName="fav" value="true" />Peli
+            favorita</label
+          >
+        </div>
+        <div class="form-group mb-3 col-md-12">
+          <label for="Descripcion">
+            Descripcion de la pelicula
+            <textarea
+              type="text"
+              class="form-control"
+              placeholder="Introduce descripcion"
+              formControlName="description"
+              cols="83"
+              rows="3"
+            >
+            </textarea>
+            <small
+              *ngIf="validarCampo('description')"
+              class="form-text text-danger"
+              >El campo no puede estar vacio</small
+            >
+          </label>
+        </div>
+        <div class="form-group mb-3 d-flex justify-content-end col-md-12">
+          <button
+            type="submit"
+            [disabled]="userForm.invalid"
+            class="btn btn-primary justify-content-end"
+          >
+            Guardar
+          </button>
+        </div>
+        <p *ngIf="formValue">{{ formValue | json }}</p>
+      </div>
+      <div class="col-md-5">
+        <h1>Pelis similares</h1>
+        <hr />
+        <div *ngFor="let datosPeli of datos" class="d-flex align-items-center">
+          <div class="p-2"><input type="checkbox" formControlName="similarProducts" value=false/></div>
+          <div class="p-2"><img src="{{ datosPeli.image }}" /></div>
+          <div class="ml-auto p-2">{{ datosPeli.product }}</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
